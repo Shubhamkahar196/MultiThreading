@@ -1,0 +1,99 @@
+CPU => Brain of computer 
+Core -> It is individual core , A quad core means they hava 4 fours which run individual at the same time.
+Program - > It is a set of Program.
+Process - > It is an instance of a Program that is being excute.
+Thread -> A thread is the smallest unit of execution within a Process. A Process Can have multiple threads,which share the same resources but can run independently
+Example - > A web browser like Google chrome.
+Multitasking -> Run multiple program simultaneously.
+Multithreading - > Multithreading refers to the ability to excute multiple threads within a single Process concurrenlty.
+In other words we can say that higher level of Multitasking.
+
+In a single core System - > Both threads and processes are managed by the OS scheduler through time slicing and context switching to create the illusion of simultaneous execution.
+In other words we cay say that the process of asking your brain to foucs on two different things at the same time.
+In a Multi-Core System - > Both threads and processes can run in true parallel on different cores, with the OS scheduler distributing tasks across the cores to optimize performance.
+Scheduler -> it helps schedule the processes in an operating system.
+
+Time slicing - > It divides CPU time into small intervals called time slice or quanta.
+Function -> The OS Scheduler allocates these time slice to different processes and threads, ensuring each gets a fair share of CPU time.
+Purpose - > To provide time for every process to work.
+
+Context switching - > It is the process of saving the state of a corrently running process or thread and loading the state of the next one to be executed.
+Function -> when a process or thread's time slice expires, the OS scheduler perform a context switch to move the CPU's focus to another process or thread.
+Purpose -> they give multiple processes and threads to share the cpu for simultaneous execution on a single core.
+
+Java Multithreading -> it is the capabilities are part of the java.lang package, making it easy to implement concurrent execution.
+java Multithreading managed by JVM.
+
+Java Program starts, one thread begins running immediately, which is called the main thread. this thread is responsible for executing the main method of a program.
+
+Test.java 
+-> A  new class World is created that extends Thread.
+-> The run method is overriden to define the code that constitutes the new thread.
+-> Start method is called to intiate the new thread
+
+TO create a new Thread in java, you can eithere extend the Thread class or implement the Runnable interface.
+
+Test_1.java
+-> A new class World is created that implements Runnable.
+-> The run  method is overrideen to define the code that constitutes the new thread.
+-> A thread object is created by passing an interface of MyRunnable.
+Start method is called on the thread object to intiate the new thread.
+
+in both case the run method contains the code that will be executed in the new thread.
+
+Thread LifeCycle  - > MyThread.java
+New -> A thread is in this state when it is create but not yet started.
+Runnable -> After the start method is called the thread becomes runnable. It's ready to run and is waiting for CPU time.
+Running -> The thread is in this state when it is executing.
+Blocked/Waiting -> A thread is in this state when it is waiting for a resource or for another thread to perform an action.
+Terminated - > A thread is in this state when it has finished executing.
+
+SetPriority -> Scheduler gives priority.
+interrupt -> Interrupting the thread.
+yield() -> give to chance another thread to run this program.
+setDaemon() - > this thread run on background.if the main method work done then JVM not waiting to end the program of Daemon and Program terminated.
+
+Synchronized Method-> one things share with other or shared resources work together they give unpredictable result which may occur fault output,
+-> so this condition we use Synchronized method to get right output.
+Disadvantage of Synchronized ->
+->Fairness,blocking,interruptibility,read/write locking 
+
+Locks -> It is interface 
+how to make lock object?
+Lock lock = new ReentrantLock();
+Intrinsic Lock and Explicit Lock
+Intrinsic Lock -> These are built into every object in java,You don't see them , but they're there.When you use a Synchronized keyword.
+-> you're using these automatic locks.
+Explicit Lock -> These are more advanced locks you can control yourself using the lock class from java.util.concurrent.locks.
+->You explicity say when to lock and unlock, giving you more control over how and when people can write in the notebook.
+
+DeadLock -> this is the situation where two or more process are blocked forever, waiting for each other to release their resources.
+Condition for DeadLock Occurs 
+->There are 4 condition when DeadLock occurs
+1st -> Mutual Exclusion -> only one threads  can access a resource at a time.
+2nd -> Hold and Wait -> A threads holding at least one resource is waiting to acquire additional resource held by other threads.
+3rd -> No Preemption - > resource cannot be forcibly taken from threads holding them.
+4th - > Circular wait -  a set of threads is waiting for each other in a circular chain.
+
+Thread Communication 
+-> Communication b/w thread 
+Thread Communication used these three things
+-> wait()
+-> notify()
+-> notifyall()
+
+Thread safety -> when unexecepted result doesnot come.
+
+Lambda Expression -> Anonymous function 
+
+Thread Pool -> collection of pre-initialised threads.
+why we use thread pool ? 
+->resource management
+-> Respose time
+-> Control over thread count
+
+
+
+
+
+
